@@ -2,27 +2,38 @@ mysql:
   image: mysql:5.6.23
   environment:
     MYSQL_ROOT_PASSWORD: 'pass'
+#    - MYSQL_ROOT_PASSWORD=supersecretpass
   ports:
     - '3306:3306'
+#    - 3306
+  volumes:
+    - ./mysql:/var/lib/mysql
 
 nginx:
-  image: pochi-nginx
+#  image: pochi-nginx
+  build: Dockerfiles/nginx
   ports:
     - '8080:80'
   links:
-    - shiba
+    - web
 
-shiba:
-  image: pochi-rails
+web:
+  build: .
+
+#  image: pochi-rails
+
+#  command: bundle exec rails server -p 3000 --bind=0.0.0.0
   command: bundle exec unicorn -c config/unicorn.rb
+
   volumes:
+#    - .:/app
     - .:/usr/pochi/home/system
   ports:
-    - '3000:3000'
+    - 3000:3000
+  links:
+    - mysql
   environment:
     RAILS_ENV: development
     MYSQL_ROOT_PASSWORD: 'pass'
     DATABASE_URL: mysql2://root:pass@mysql:3306
     SECRET_KEY_BASE: hogehoge
-  links:
-    - mysql
