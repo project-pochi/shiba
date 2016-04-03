@@ -14,9 +14,8 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: <%= ENV['DB_ENV_MYSQL_ROOT_PASSWORD'] %>
+  password: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
   host: <%= ENV['DATABASE_URL'] %>
-  port: <%= ENV['DB_PORT_3306_TCP_PORT'] %>
 
 #default: &default
 #  adapter: mysql2
