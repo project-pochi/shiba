@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160403103050) do
     t.string   "encrypted_email_address", limit: 255, default: "",           null: false
     t.string   "encrypted_phone_number",  limit: 255, default: "",           null: false
     t.string   "encrypted_zip_code",      limit: 255, default: "",           null: false
-    t.string   "password_hash",           limit: 255,                        null: false
+    t.string   "password_digest",         limit: 255,                        null: false
     t.string   "gender",                  limit: 255, default: ""
     t.date     "birthdate",                           default: '1900-01-01', null: false
     t.boolean  "disabled",                            default: false,        null: false
@@ -28,6 +28,6 @@ ActiveRecord::Schema.define(version: 20160403103050) do
   end
 
   add_index "users", ["encrypted_email_address"], name: "index_users_on_encrypted_email_address", unique: true, using: :btree
-  add_index "users", ["password_hash"], name: "index_users_on_password_hash", using: :btree
+  add_index "users", ["password_digest"], name: "index_users_on_password_digest", using: :btree
 
 end
