@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160403103050) do
     t.string   "gender",                  limit: 255, default: ""
     t.date     "birthdate",                           default: '1900-01-01', null: false
     t.boolean  "disabled",                            default: false,        null: false
+    t.string   "remember_digest",         limit: 255
     t.datetime "created_at",                                                 null: false
     t.datetime "updated_at",                                                 null: false
   end

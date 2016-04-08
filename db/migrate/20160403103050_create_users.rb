@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string  :gender,                                  :default => ''
       t.date    :birthdate,               :null => false, :default => '1900-01-01'
       t.boolean :disabled,                :null => false, :default => false
+      t.string  :remember_digest
 
       t.timestamps :null => false
     end
