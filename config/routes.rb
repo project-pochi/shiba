@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
 
+  # Sign up
+  get    'signup'  => 'users#new'
+
+  # Log in
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
   resources :users
 
 
