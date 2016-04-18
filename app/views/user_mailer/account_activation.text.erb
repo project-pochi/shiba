@@ -1,0 +1,7 @@
+<%= @user.last_name %> <%= @user.first_name %> さん
+
+ワン泊！へのご登録ありがとうございます。
+
+こちらのリンクからご登録を完了してください。
+
+<%= edit_account_activation_url(@user.activation_token, encrypted_email_address: @user.encrypted_email_address) %>

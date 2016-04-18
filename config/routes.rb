@@ -5,13 +5,16 @@ Rails.application.routes.draw do
   # Sign up
   get    'signup'  => 'users#new'
 
-  # Log in
+  # Log in/out
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+  # user
   resources :users
 
+  # account activation
+  resources :account_activations, only: [:edit]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
