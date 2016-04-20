@@ -13,6 +13,8 @@ class CreateUsers < ActiveRecord::Migration
       t.datetime :activated_at
       t.string   :activation_digest
       t.string   :remember_digest
+      t.string   :reset_digest
+      t.datetime :reset_sent_at
       t.timestamps :null => false
     end
 

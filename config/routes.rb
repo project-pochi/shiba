@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   root 'static_pages#index'
 
   # Sign up
@@ -15,6 +19,9 @@ Rails.application.routes.draw do
 
   # account activation
   resources :account_activations, only: [:edit]
+
+  # password reset
+  resource :password_resets, only: [:new, :create, :edit, :update]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
