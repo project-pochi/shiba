@@ -1,0 +1,7 @@
+<p><%= @user.last_name %> <%= @user.first_name %> さん</p>
+
+<p>ワン泊！へのご登録ありがとうございます。</p>
+
+<p>こちらのリンクからご登録を完了してください。</p>
+
+<%= link_to "ワン泊！の登録を完了する", edit_account_activation_url(@user.activation_token, encrypted_email_address: @user.encrypted_email_address) %>
