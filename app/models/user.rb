@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   validates :encrypted_zip_code,      presence: true
   validates :gender,                  inclusion: { in: ["male", "female"] }
   validates :birthdate,               presence: true
-  #validates :disabled,                presence: true
 
   has_secure_password
   validates :password,                presence: true, length: { minimum: 6, maximum: 20 }
@@ -57,6 +56,10 @@ class User < ActiveRecord::Base
 
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
+  end
+
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
 
   private

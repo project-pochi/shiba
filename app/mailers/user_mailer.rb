@@ -15,7 +15,7 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.password_reset.subject
   #
-  def password_reset
+  def password_reset(user)
     @user = user
     mail to: user.encrypted_email_address, subject: "ワン泊！パスワードの再設定"
   end

@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20160403103050) do
     t.datetime "activated_at"
     t.string   "activation_digest",       limit: 255
     t.string   "remember_digest",         limit: 255
+    t.string   "reset_digest",            limit: 255
+    t.datetime "reset_sent_at"
     t.datetime "created_at",                                                 null: false
     t.datetime "updated_at",                                                 null: false
   end
