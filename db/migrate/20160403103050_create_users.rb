@@ -3,6 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.string   :first_name,              :null => false
       t.string   :last_name,               :null => false
+      t.string   :nickname,                :null => false
       t.string   :encrypted_email_address, :null => false, :default => ''
       t.string   :encrypted_phone_number,  :null => false, :default => ''
       t.string   :encrypted_zip_code,      :null => false, :default => ''
