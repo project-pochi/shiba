@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160403103050) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name",              limit: 255,                        null: false
     t.string   "last_name",               limit: 255,                        null: false
+    t.string   "nickname",                limit: 255,                        null: false
     t.string   "encrypted_email_address", limit: 255, default: "",           null: false
     t.string   "encrypted_phone_number",  limit: 255, default: "",           null: false
     t.string   "encrypted_zip_code",      limit: 255, default: "",           null: false
