@@ -10,6 +10,10 @@
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
+        <% if is_sitter? %>
+        <% else %>
+          <li><%= link_to "become a sitter", new_sitter_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>

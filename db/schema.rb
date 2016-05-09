@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403103050) do
+ActiveRecord::Schema.define(version: 20160509144622) do
+
+  create_table "sitters", force: :cascade do |t|
+    t.integer  "user_id",           limit: 4
+    t.integer  "residence_type_id", limit: 4
+    t.integer  "capacity_type_id",  limit: 4
+    t.date     "has_dog_from"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "sitters", ["capacity_type_id"], name: "index_sitters_on_capacity_type_id", using: :btree
+  add_index "sitters", ["residence_type_id"], name: "index_sitters_on_residence_type_id", using: :btree
+  add_index "sitters", ["user_id"], name: "index_sitters_on_user_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",              limit: 255,                        null: false

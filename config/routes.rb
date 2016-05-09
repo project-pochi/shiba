@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   # password reset
   resources :password_resets, only: [:new, :create, :edit, :update]
 
+  # sitter
+  resources :sitters, only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

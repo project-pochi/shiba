@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  residence_type_id: 
+  capacity_type_id: 
+  has_dog_from: 2016-05-09
+
+two:
+  user_id: 
+  residence_type_id: 
+  capacity_type_id: 
+  has_dog_from: 2016-05-09
