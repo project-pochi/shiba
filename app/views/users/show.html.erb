@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% if is_sitter? %>
+  <h3>is Sitter</h3>
+<% end %>
+
 <p>
   <strong>First Name:</strong>
   <%= @user.first_name %>
@@ -39,5 +43,24 @@
   <strong>Birthdate:</strong>
   <%= @user.birthdate %>
 </p>
+
+<% if is_sitter? %>
+
+  <p>
+    <strong>Residence Type ID:</strong>
+    <%= @sitter.residence_type_id %>
+  </p>
+
+  <p>
+    <strong>Capacity Type ID:</strong>
+    <%= @sitter.capacity_type_id %>
+  </p>
+
+  <p>
+    <strong>Has Dog From:</strong>
+    <%= @sitter.has_dog_from %>
+  </p>
+
+<% end %>
 
 <%= link_to 'Top', root_path %>
