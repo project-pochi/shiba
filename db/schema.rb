@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509144622) do
+ActiveRecord::Schema.define(version: 20160603181933) do
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "zip_code",   limit: 255, null: false
+    t.float    "latitude",   limit: 24,  null: false
+    t.float    "longitude",  limit: 24,  null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "locations", ["zip_code"], name: "index_locations_on_zip_code", unique: true, using: :btree
 
   create_table "sitters", force: :cascade do |t|
     t.integer  "user_id",           limit: 4

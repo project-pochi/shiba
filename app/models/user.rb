@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :first_name,              presence: true, length: { maximum: 50 }
   validates :last_name,               presence: true, length: { maximum: 50 }
   validates :nickname,                presence: true, length: { maximum: 50 }
-  validates :encrypted_email_address, presence: true
+  validates :encrypted_email_address, presence: true, uniqueness: true
   validates :encrypted_phone_number,  presence: true
   validates :encrypted_zip_code,      presence: true
   validates :gender,                  inclusion: { in: ["male", "female"] }
