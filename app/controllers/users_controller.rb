@@ -63,7 +63,6 @@ class UsersController < ApplicationController
                                    :nickname,
                                    :encrypted_email_address,
                                    :encrypted_phone_number,
-                                   :encrypted_zip_code,
                                    :gender,
                                    :birthdate,
                                    :password,

@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string   :nickname,                :null => false
       t.string   :encrypted_email_address, :null => false, :default => ''
       t.string   :encrypted_phone_number,  :null => false, :default => ''
-      t.string   :encrypted_zip_code,      :null => false, :default => ''
       t.string   :password_digest,         :null => false
       t.string   :gender,                                  :default => ''
       t.date     :birthdate,               :null => false, :default => '1900-01-01'

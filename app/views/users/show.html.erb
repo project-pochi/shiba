@@ -30,11 +30,6 @@
 </p>
 
 <p>
-  <strong>Zip Code:</strong>
-  <%= @user.encrypted_zip_code %>
-</p>
-
-<p>
   <strong>Gender:</strong>
   <%= @user.gender %>
 </p>
@@ -45,6 +40,11 @@
 </p>
 
 <% if is_sitter? %>
+
+  <p>
+    <strong>Zip Code:</strong>
+    <%= @sitter.zip_code %>
+  </p>
 
   <p>
     <strong>Residence Type ID:</strong>
