@@ -25,11 +25,12 @@ ActiveRecord::Schema.define(version: 20160603181933) do
 
   create_table "sitters", force: :cascade do |t|
     t.integer  "user_id",           limit: 4
+    t.string   "zip_code",          limit: 255, default: "", null: false
     t.integer  "residence_type_id", limit: 4
     t.integer  "capacity_type_id",  limit: 4
     t.date     "has_dog_from"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "sitters", ["capacity_type_id"], name: "index_sitters_on_capacity_type_id", using: :btree
@@ -42,7 +43,6 @@ ActiveRecord::Schema.define(version: 20160603181933) do
     t.string   "nickname",                limit: 255,                        null: false
     t.string   "encrypted_email_address", limit: 255, default: "",           null: false
     t.string   "encrypted_phone_number",  limit: 255, default: "",           null: false
-    t.string   "encrypted_zip_code",      limit: 255, default: "",           null: false
     t.string   "password_digest",         limit: 255,                        null: false
     t.string   "gender",                  limit: 255, default: ""
     t.date     "birthdate",                           default: '1900-01-01', null: false

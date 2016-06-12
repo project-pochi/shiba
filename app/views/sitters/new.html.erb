@@ -6,6 +6,10 @@
     <%= form_for(@sitter) do |f| %>
       <%= render 'shared/error_messages' %>
 
+      <%= f.label :zip_code %>
+      <%= f.text_field :zip_code, class: 'form-control' %>
+      <br>
+
       <%= f.label :residence_type_id %>
       <%= f.number_field :residence_type_id, class: 'form-control' %>
       <br>

@@ -1,10 +1,28 @@
 <% provide(:title, 'Search sitters') %>
-<h1>Search sitters</h1>
+<h1>Search Sitters</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <p>zipcode</p>
-  </div>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nickname</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.nickname %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
 
 <%= link_to 'Top', root_path %>
