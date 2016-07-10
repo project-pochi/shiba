@@ -16,7 +16,7 @@ nginx:
 #  image: pochi-nginx
   build: Dockerfiles/nginx
   ports:
-    - '8080:80'
+    - '80:80'
 #  volumes_from:
 #    - datastore
   links:
@@ -35,7 +35,7 @@ web:
     - .:/usr/src/app
 #    - .:/usr/pochi/home/system
   ports:
-    - 3000:3000
+    - '3000:3000'
   links:
     - mysql
   environment:
