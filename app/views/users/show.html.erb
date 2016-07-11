@@ -77,6 +77,8 @@
             events: <%= raw @sitter_busy_dates.to_json %>,
             selectable: true
         })
+    });
+    var setBusyDays = function() {
         if (<%= !@sitter_busy_days.nil? %>) {
             if (<%= @sitter_busy_days.sunday %>) {
                 $('.fc-widget-content.fc-sun').html('busy');
@@ -100,5 +102,6 @@
                 $('.fc-widget-content.fc-sat').html('busy');
             }
         }
-    });
+    }
+    setInterval(setBusyDays, 100);
 <% end %>
