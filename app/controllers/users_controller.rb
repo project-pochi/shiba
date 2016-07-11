@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     unless @sitter.nil?
       @sitter_busy_dates = SitterBusyDate.where(sitter_id: @sitter.id)
       logger.debug @sitter_busy_dates.inspect
-      @sitter_busy_days = '.fc-mon'
+      @sitter_busy_days = SitterBusyDay.find_by(sitter_id: @sitter.id)
 
       #@user_events = [ { "id": 1, "title": "test", "allDay": false, "start": "2016-07-12T19:09:16", "end": "2016-07-15T19:09:16" } ]
     end

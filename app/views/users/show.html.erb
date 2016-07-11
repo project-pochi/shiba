@@ -77,6 +77,28 @@
             events: <%= raw @sitter_busy_dates.to_json %>,
             selectable: true
         })
-        $('.fc-widget-content.fc-mon').html('受付不可');
+        if (<%= !@sitter_busy_days.nil? %>) {
+            if (<%= @sitter_busy_days.sunday %>) {
+                $('.fc-widget-content.fc-sun').html('busy');
+            }
+            if (<%= @sitter_busy_days.monday %>) {
+                $('.fc-widget-content.fc-mon').html('busy');
+            }
+            if (<%= @sitter_busy_days.tuesday %>) {
+                $('.fc-widget-content.fc-tue').html('busy');
+            }
+            if (<%= @sitter_busy_days.wednesday %>) {
+                $('.fc-widget-content.fc-wed').html('busy');
+            }
+            if (<%= @sitter_busy_days.thursday %>) {
+                $('.fc-widget-content.fc-thu').html('busy');
+            }
+            if (<%= @sitter_busy_days.friday %>) {
+                $('.fc-widget-content.fc-fri').html('busy');
+            }
+            if (<%= @sitter_busy_days.saturday %>) {
+                $('.fc-widget-content.fc-sat').html('busy');
+            }
+        }
     });
 <% end %>
