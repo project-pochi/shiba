@@ -69,3 +69,14 @@
 <% end %>
 
 <%= link_to 'Top', root_path %>
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+        $('#calendar').fullCalendar({
+            // put your options and callbacks here
+            events: <%= raw @user_events.to_json %>,
+            selectable: true
+        })
+        $('.fc-widget-content.fc-mon').html('受付不可');
+    });
+<% end %>
