@@ -26,3 +26,8 @@ web:
     MYSQL_ROOT_PASSWORD: 'pass'
     DATABASE_URL: mysql2://root:pass@mysql:3306
     SECRET_KEY_BASE: hogehoge
+    MAILER_DEFAULT_URL: '192.168.99.100:3000'
+    MAIL_SERVER_ADDRESS: 'please fill here'
+    MAIL_SERVER_DOMAIN: 'please fill here'
+    MAIL_USER_NAME: 'please fill here'
+    MAIL_USER_PASS: 'please fill here'
