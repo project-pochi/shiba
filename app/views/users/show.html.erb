@@ -74,7 +74,7 @@
     $(document).ready(function() {
         $('#calendar').fullCalendar({
             // put your options and callbacks here
-            events: <%= raw @user_events.to_json %>,
+            events: <%= raw @sitter_busy_dates.to_json %>,
             selectable: true
         })
         $('.fc-widget-content.fc-mon').html('受付不可');

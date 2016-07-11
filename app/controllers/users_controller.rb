@@ -9,10 +9,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @sitter = Sitter.find_by(user_id: @user.id)
 
-    @user_events = [ { "id": 1, "title": "test", "allDay": false, "start": "2016-07-12T19:09:16", "end": "2016-07-15T19:09:16" } ]
+    unless @sitter.nil?
+      @sitter_busy_dates = SitterBusyDate.where(sitter_id: @sitter.id)
+      logger.debug @sitter_busy_dates.inspect
+      @sitter_busy_days = '.fc-mon'
 
-    @bad_days = '.fc-mon'
-    #debugger
+      #@user_events = [ { "id": 1, "title": "test", "allDay": false, "start": "2016-07-12T19:09:16", "end": "2016-07-15T19:09:16" } ]
+    end
   end
 
   def new

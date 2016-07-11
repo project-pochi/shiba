@@ -1,7 +1,7 @@
 class CreateSitterBusyDays < ActiveRecord::Migration
   def change
     create_table :sitter_busy_days, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-      t.references :sitter, index: true, null: false
+      t.references :sitter,    null: false, index: { unique: true }
       t.boolean    :sunday,    null: false, default: false
       t.boolean    :monday,    null: false, default: false
       t.boolean    :tuesday,   null: false, default: false

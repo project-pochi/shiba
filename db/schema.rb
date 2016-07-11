@@ -24,15 +24,15 @@ ActiveRecord::Schema.define(version: 20160711153923) do
   add_index "locations", ["zip_code"], name: "index_locations_on_zip_code", unique: true, using: :btree
 
   create_table "sitter_busy_dates", force: :cascade do |t|
-    t.integer  "sitter_id",  limit: 4,   null: false
-    t.date     "date",                   null: false
-    t.string   "type",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "sitter_id",  limit: 4,                    null: false
+    t.date     "start",                                   null: false
+    t.string   "title",      limit: 255, default: "busy", null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
-  add_index "sitter_busy_dates", ["date"], name: "index_sitter_busy_dates_on_date", using: :btree
   add_index "sitter_busy_dates", ["sitter_id"], name: "index_sitter_busy_dates_on_sitter_id", using: :btree
+  add_index "sitter_busy_dates", ["start"], name: "index_sitter_busy_dates_on_start", using: :btree
 
   create_table "sitter_busy_days", force: :cascade do |t|
     t.integer  "sitter_id",  limit: 4,                 null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20160711153923) do
     t.datetime "updated_at",                           null: false
   end
 
-  add_index "sitter_busy_days", ["sitter_id"], name: "index_sitter_busy_days_on_sitter_id", using: :btree
+  add_index "sitter_busy_days", ["sitter_id"], name: "index_sitter_busy_days_on_sitter_id", unique: true, using: :btree
 
   create_table "sitters", force: :cascade do |t|
     t.integer  "user_id",           limit: 4
