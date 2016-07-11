@@ -1,0 +1,25 @@
+current directory: /usr/src/app/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
+/usr/local/bin/ruby -r ./siteconf20160711-424-1vz4mdp.rb extconf.rb
+creating Makefile
+
+current directory: /usr/src/app/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" clean
+make: Warning: File 'Makefile' has modification time 43 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /usr/src/app/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR="
+make: Warning: File 'Makefile' has modification time 43 s in the future
+compiling bcrypt_ext.c
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /usr/src/app/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" install
+make: Warning: File 'Makefile' has modification time 42 s in the future
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20160711-424-1bcnjk5
+make: warning:  Clock skew detected.  Your build may be incomplete.

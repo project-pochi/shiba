@@ -1,0 +1,21 @@
+current directory: /usr/src/app/vendor/bundle/ruby/2.3.0/gems/binding_of_caller-0.7.2/ext/binding_of_caller
+/usr/local/bin/ruby -r ./siteconf20160711-424-1a7o30s.rb extconf.rb
+
+current directory: /usr/src/app/vendor/bundle/ruby/2.3.0/gems/binding_of_caller-0.7.2/ext/binding_of_caller
+make "DESTDIR=" clean
+make: Warning: File 'Makefile' has modification time 43 s in the future
+make: *** No rule to make target 'clean'.  Stop.
+
+current directory: /usr/src/app/vendor/bundle/ruby/2.3.0/gems/binding_of_caller-0.7.2/ext/binding_of_caller
+make "DESTDIR="
+make: Warning: File 'Makefile' has modification time 43 s in the future
+echo "Nada."
+Nada.
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /usr/src/app/vendor/bundle/ruby/2.3.0/gems/binding_of_caller-0.7.2/ext/binding_of_caller
+make "DESTDIR=" install
+make: Warning: File 'Makefile' has modification time 43 s in the future
+echo "Nada."
+Nada.
+make: warning:  Clock skew detected.  Your build may be incomplete.
