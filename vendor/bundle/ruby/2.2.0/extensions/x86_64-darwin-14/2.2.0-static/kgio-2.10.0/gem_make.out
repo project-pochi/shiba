@@ -1,4 +1,4 @@
-/Users/taishi/.rbenv/versions/2.2.0/bin/ruby -r ./siteconf20160403-4141-19nxtye.rb extconf.rb
+/Users/taishi/.rbenv/versions/2.2.0/bin/ruby -r ./siteconf20160711-3858-1ha3hqy.rb extconf.rb
 checking for CLOCK_MONOTONIC in time.h... no
 checking for CLOCK_MONOTONIC() in time.h... no
 checking for clockid_t in time.h... no
@@ -57,4 +57,4 @@ compiling writev.c
 linking shared-object kgio_ext.bundle
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 kgio_ext.bundle ./.gem.20160403-4141-1ey0kep
+/usr/bin/install -c -m 0755 kgio_ext.bundle ./.gem.20160711-3858-1ca36om

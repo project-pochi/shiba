@@ -1,4 +1,4 @@
-/Users/taishi/.rbenv/versions/2.2.0/bin/ruby -r ./siteconf20160403-4141-ndjyd9.rb extconf.rb
+/Users/taishi/.rbenv/versions/2.2.0/bin/ruby -r ./siteconf20160711-3858-p6mmh2.rb extconf.rb
 creating Makefile
 
 make "DESTDIR=" clean
@@ -8,4 +8,4 @@ compiling debug_inspector.c
 linking shared-object debug_inspector.bundle
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20160403-4141-1f3ps98
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20160711-3858-1grtr41

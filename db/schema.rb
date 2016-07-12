@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160603181933) do
+ActiveRecord::Schema.define(version: 20160711153923) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "zip_code",   limit: 255, null: false
@@ -22,6 +22,32 @@ ActiveRecord::Schema.define(version: 20160603181933) do
   end
 
   add_index "locations", ["zip_code"], name: "index_locations_on_zip_code", unique: true, using: :btree
+
+  create_table "sitter_busy_dates", force: :cascade do |t|
+    t.integer  "sitter_id",  limit: 4,                    null: false
+    t.date     "start",                                   null: false
+    t.string   "title",      limit: 255, default: "busy", null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  add_index "sitter_busy_dates", ["sitter_id"], name: "index_sitter_busy_dates_on_sitter_id", using: :btree
+  add_index "sitter_busy_dates", ["start"], name: "index_sitter_busy_dates_on_start", using: :btree
+
+  create_table "sitter_busy_days", force: :cascade do |t|
+    t.integer  "sitter_id",  limit: 4,                 null: false
+    t.boolean  "sunday",               default: false, null: false
+    t.boolean  "monday",               default: false, null: false
+    t.boolean  "tuesday",              default: false, null: false
+    t.boolean  "wednesday",            default: false, null: false
+    t.boolean  "thursday",             default: false, null: false
+    t.boolean  "friday",               default: false, null: false
+    t.boolean  "saturday",             default: false, null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "sitter_busy_days", ["sitter_id"], name: "index_sitter_busy_days_on_sitter_id", unique: true, using: :btree
 
   create_table "sitters", force: :cascade do |t|
     t.integer  "user_id",           limit: 4

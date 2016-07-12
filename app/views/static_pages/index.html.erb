@@ -8,6 +8,11 @@
     <%= form_tag('/sitters', :method => :get) do %>
       <%= label_tag :zip_code %>
       <%= text_field_tag :zip_code %>
+      <%= label_tag :start %>
+      <%= date_field_tag :start %>
+      <%= label_tag :end %>
+      <%= date_field_tag :end %>
+      <%= submit_tag("Search") %>
     <% end %>
   </div>
 </div>

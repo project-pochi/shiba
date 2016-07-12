@@ -61,6 +61,47 @@
     <%= @sitter.has_dog_from %>
   </p>
 
+  <p>
+    <strong>Calendar</strong>
+    <div id="calendar" style="width:40%"></div>
+  </p>
+
 <% end %>
 
 <%= link_to 'Top', root_path %>
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+        $('#calendar').fullCalendar({
+            // put your options and callbacks here
+            events: <%= raw @sitter_busy_dates.to_json %>,
+            selectable: true
+        })
+    });
+    var setBusyDays = function() {
+        if (<%= !@sitter_busy_days.nil? %>) {
+            if (<%= @sitter_busy_days.sunday %>) {
+                $('.fc-widget-content.fc-sun').html('busy');
+            }
+            if (<%= @sitter_busy_days.monday %>) {
+                $('.fc-widget-content.fc-mon').html('busy');
+            }
+            if (<%= @sitter_busy_days.tuesday %>) {
+                $('.fc-widget-content.fc-tue').html('busy');
+            }
+            if (<%= @sitter_busy_days.wednesday %>) {
+                $('.fc-widget-content.fc-wed').html('busy');
+            }
+            if (<%= @sitter_busy_days.thursday %>) {
+                $('.fc-widget-content.fc-thu').html('busy');
+            }
+            if (<%= @sitter_busy_days.friday %>) {
+                $('.fc-widget-content.fc-fri').html('busy');
+            }
+            if (<%= @sitter_busy_days.saturday %>) {
+                $('.fc-widget-content.fc-sat').html('busy');
+            }
+        }
+    }
+    setInterval(setBusyDays, 100);
+<% end %>
