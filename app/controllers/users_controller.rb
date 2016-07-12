@@ -41,13 +41,19 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-
   def update
-    if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
-    else
+    if user_params[:encrypted_email_address].presence? && user_params[:password].presence?
       render :edit
+    elsif user_params[:encrypted_email_address].presence?
+
+    elsif user_params[:password].presence?
+
+    else
+      if @user.update(user_params)
+        redirect_to @user, notice: 'User was successfully updated.'
+      else
+        render :edit
+      end
     end
   end
 
