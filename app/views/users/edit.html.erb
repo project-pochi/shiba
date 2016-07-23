@@ -17,7 +17,7 @@
 
     <%= form_for(@user) do |f| %>
       <%= f.label :encrypted_phone_number %>
-      <%= f.email_field :encrypted_phone_number, class: 'form-control' %>
+      <%= f.telephone_field :encrypted_phone_number, class: 'form-control' %>
       <%= f.submit "Save phone number changes", class: "btn btn-primary" %>
     <% end %>
 
