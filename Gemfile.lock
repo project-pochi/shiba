@@ -81,6 +81,7 @@ GEM
     momentjs-rails (2.11.1)
       railties (>= 3.1)
     mysql2 (0.4.3)
+    newrelic_rpm (3.16.2.321)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     rack (1.6.4)
@@ -156,6 +157,7 @@ DEPENDENCIES
   jquery-rails
   momentjs-rails
   mysql2 (>= 0.3.13, < 0.5)
+  newrelic_rpm
   rails (= 4.2.5.1)
   sass-rails (~> 5.0)
   spring
