@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @sitter = Sitter.find_by(user_id: @user.id)
 
+    @sitter_busy_dates = SitterBusyDate.new
+    @sitter_busy_days = SitterBusyDay.new
     unless @sitter.nil?
       @sitter_busy_dates = SitterBusyDate.where(sitter_id: @sitter.id)
       logger.debug @sitter_busy_dates.inspect
@@ -41,14 +43,49 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-
   def update
-    if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
-    else
-      render :edit
+    if email_update_param.present?
+      # TODO
+      # deactivate account
+      # send email
+      # clear session
+      redirect_to root_url
+
+    elsif password_update_param.present?
+      # TODO
+      # deactivate account
+      # send email
+      # clear session
+      redirect_to root_url
+
+    elsif nickname_update_param[:nickname].present?
+      new_nickname = nickname_update_param[:nickname]
+
+      if new_nickname.length > 16
+        flash[:error] = "Invalid nickname"
+        render :edit
+        return
+      end
+
+      if @user.update_attribute(:nickname, new_nickname)
+        flash[:success] = "User was successfully updated."
+        redirect_to @user
+        return
+      end
+
+    elsif phone_update_param[:encrypted_phone_number].present?
+      new_phone_number = phone_update_param[:encrypted_phone_number]
+      # TODO: validation
+
+      if @user.update_attribute(:encrypted_phone_number, new_phone_number)
+        flash[:success] = "User was successfully updated."
+        redirect_to @user
+        return
+      end
+
     end
+
+      render :edit
   end
 
   def destroy
@@ -73,5 +110,21 @@ class UsersController < ApplicationController
                                    :birthdate,
                                    :password,
                                    :password_confirmation)
+    end
+
+    def nickname_update_param
+      params.require(:user).permit(:nickname)
+    end
+
+    def email_update_param
+      params.require(:user).permit(:encrypted_email_address)
+    end
+
+    def phone_update_param
+      params.require(:user).permit(:encrypted_phone_number)
+    end
+
+    def password_update_param
+      params.require(:user).permit(:password, :password_confirmation)
     end
 end
